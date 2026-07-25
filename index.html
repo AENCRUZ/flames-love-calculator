@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FLAMES — A Little Love Game</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/animations.css" />
 </head>
@@ -18,7 +18,7 @@
   <header class="topbar">
     <button class="icon-btn" id="historyBtn" title="Love History" aria-label="Open love history">🗂️</button>
     <div class="theme-picker" id="themePicker">
-      <button class="theme-dot theme-dot--cute" data-theme="cute" title="Cute pastel" aria-label="Cute pastel theme"></button>
+      <button class="theme-dot theme-dot--cute" data-theme="cute" title="Crayon rainbow" aria-label="Crayon rainbow theme"></button>
       <button class="theme-dot theme-dot--valentine" data-theme="valentine" title="Valentine" aria-label="Valentine theme"></button>
       <button class="theme-dot theme-dot--midnight" data-theme="midnight" title="Midnight romance" aria-label="Midnight romance theme"></button>
     </div>
@@ -48,12 +48,12 @@
 
         <label class="field">
           <span class="field__label">Your name</span>
-          <input type="text" id="nameYou" class="field__input" placeholder="e.g. Jane Doe" maxlength="30" autocomplete="off" />
+          <input type="text" id="nameYou" class="field__input" placeholder="e.g. Taylor" maxlength="30" autocomplete="off" />
         </label>
 
         <label class="field">
           <span class="field__label">Their name</span>
-          <input type="text" id="nameThem" class="field__input" placeholder="e.g. John Doe" maxlength="30" autocomplete="off" />
+          <input type="text" id="nameThem" class="field__input" placeholder="e.g. Travis" maxlength="30" autocomplete="off" />
         </label>
 
         <p class="field-error" id="formError" role="alert"></p>
@@ -98,9 +98,9 @@
         <div class="wax-seal" id="waxSeal">
           <span id="waxSealEmoji">💗</span>
         </div>
-        <h2 class="result-word" id="resultWord">LOVERS</h2>
-        <p class="result-desc" id="resultDesc">You two have a special connection.</p>
-        <p class="result-names" id="resultNames">Angelyn + Eli</p>
+        <h2 class="result-word" id="resultWord">MARRIAGE</h2>
+        <p class="result-desc" id="resultDesc">A future built to last, together.</p>
+        <p class="result-names" id="resultNames">Taylor + Travis</p>
 
         <div class="result-actions">
           <button class="btn btn--ghost" id="copyBtn">Copy result</button>
