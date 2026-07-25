@@ -16,7 +16,7 @@ No build step — it's plain HTML/CSS/JS.
    ```
    Then visit `http://localhost:8000`.
 
-## What's implemented (Phase 1 + 2 + partial Phase 3)
+## What's implemented 
 
 - ✅ Name input with validation (empty, letters-only, no identical names)
 - ✅ Letter cancellation with animated ink-stamp crossing-out
@@ -61,14 +61,6 @@ FLAMES-Love-Game/
 │   └── sounds/           (empty — see note above)
 └── README.md
 ```
-
-## Next up (Phase 4 ideas from the original plan)
-
-- Generate a downloadable/shareable result *image* (canvas or html-to-image)
-- Port to React if you want componentized state instead of the vanilla JS
-  scene machine in `main.js`
-- Add a backend + accounts if you want history to sync across devices
-  instead of living in each browser's `localStorage`
 
 ## Git
 
