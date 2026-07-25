@@ -29,20 +29,6 @@ No build step — it's plain HTML/CSS/JS.
 - ✅ Mobile-responsive layout
 - ✅ Reduced-motion support
 
-## About the audio
-
-The original plan called for recorded `stamp.mp3` / `click.mp3` files. To keep
-the project runnable with zero external assets, `js/audio.js` synthesizes all
-sound effects live with the Web Audio API. If you'd rather use real recordings:
-
-1. Drop files into `assets/sounds/`.
-2. In `audio.js`, replace the `tone(...)` calls inside `click()`, `stamp()`,
-   `paperFlip()`, `eliminate()`, and `sparkle()` with an `<audio>` element or
-   `new Audio('assets/sounds/yourfile.mp3').play()`.
-
-Same idea applies to `assets/images/` — the paper texture and hearts are done
-in pure CSS/emoji right now so there's nothing to source before it runs.
-
 ## Project structure
 
 ```
