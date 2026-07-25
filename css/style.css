@@ -3,24 +3,32 @@
    Token system
    ============================================ */
 :root{
-  /* Base "cute pastel" theme */
-  --paper: #F4EEDD;
-  --paper-shadow: #DFCFA6;
-  --ink: #362F45;
-  --ink-soft: #6B6178;
-  --rose: #C2495B;
-  --gold: #B8863B;
-  --blush: #F0CDD0;
+  /* Base "crayon box" theme — bright, bubbly, kid-friendly */
+  --paper: #FFFBEF;
+  --paper-shadow: #FFE29A;
+  --ink: #3D2C5B;
+  --ink-soft: #7A6A9E;
+  --rose: #FF5C7A;
+  --gold: #FFB627;
+  --blush: #FFD1DC;
   --accent: var(--rose);
-  --desk-1: #EAD9C4;
-  --desk-2: #DCC6A8;
+  --desk-1: #6EC6FF;
+  --desk-2: #FFD23F;
 
-  --font-display: 'Dancing Script', cursive;
-  --font-body: 'Cormorant Garamond', serif;
-  --font-ui: 'Quicksand', sans-serif;
+  /* Rainbow crayon set, used for the signature stripe + tile borders */
+  --crayon-red: #FF4B4B;
+  --crayon-orange: #FFA23F;
+  --crayon-yellow: #FFD23F;
+  --crayon-green: #4CD787;
+  --crayon-blue: #2EC4F1;
+  --crayon-purple: #A66DD4;
 
-  --radius: 6px;
-  --shadow-card: 0 18px 40px -12px rgba(54, 47, 69, 0.35), 0 2px 0 rgba(255,255,255,0.4) inset;
+  --font-display: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+  --font-ui: 'Fredoka', sans-serif;
+
+  --radius: 20px;
+  --shadow-card: 0 18px 40px -12px rgba(61, 44, 91, 0.3), 0 2px 0 rgba(255,255,255,0.5) inset;
 }
 
 /* Valentine theme */
@@ -98,7 +106,7 @@ body{
   border: 2px solid rgba(255,255,255,0.7);
   cursor: pointer;
 }
-.theme-dot--cute{ background: linear-gradient(135deg, #F0CDD0, #EAD9C4); }
+.theme-dot--cute{ background: linear-gradient(135deg, #FF5C7A, #FFD23F, #2EC4F1); }
 .theme-dot--valentine{ background: linear-gradient(135deg, #B3253B, #F6B8C2); }
 .theme-dot--midnight{ background: linear-gradient(135deg, #1B1727, #D88AA0); }
 .theme-dot:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
@@ -177,16 +185,33 @@ body{
   background: var(--paper);
   box-shadow: var(--shadow-card);
   border-radius: var(--radius);
-  padding: 36px 32px;
+  padding: 40px 32px 36px;
   width: 100%;
   position: relative;
+  overflow: hidden;
+}
+.letter-card::after{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  background: var(--accent);
+}
+body[data-theme="cute"] .letter-card::after{
+  background: linear-gradient(90deg,
+    var(--crayon-red) 0 16.6%,
+    var(--crayon-orange) 16.6% 33.2%,
+    var(--crayon-yellow) 33.2% 49.8%,
+    var(--crayon-green) 49.8% 66.4%,
+    var(--crayon-blue) 66.4% 83%,
+    var(--crayon-purple) 83% 100%);
 }
 .letter-card::before{
   content: "";
   position: absolute;
-  inset: 8px;
-  border: 1px dashed var(--paper-shadow);
-  border-radius: 4px;
+  inset: 10px;
+  border: 3px dashed var(--paper-shadow);
+  border-radius: 14px;
   pointer-events: none;
 }
 .letter-card--wide{ max-width: 620px; }
@@ -248,10 +273,10 @@ body{
 .btn{
   font-family: var(--font-ui);
   font-weight: 600;
-  font-size: 0.95rem;
-  border: none;
+  font-size: 1rem;
+  border: 3px solid transparent;
   border-radius: 999px;
-  padding: 12px 28px;
+  padding: 13px 30px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
   letter-spacing: 0.01em;
@@ -259,14 +284,16 @@ body{
 .btn--primary{
   background: var(--accent);
   color: var(--paper);
-  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.35);
+  border-color: var(--ink);
+  box-shadow: 0 6px 0 0 var(--ink);
 }
-.btn--primary:hover{ transform: translateY(-2px); }
-.btn--primary:disabled{ opacity: 0.4; cursor: not-allowed; transform: none; }
+.btn--primary:hover{ transform: translateY(-2px); box-shadow: 0 8px 0 0 var(--ink); }
+.btn--primary:active{ transform: translateY(3px); box-shadow: 0 2px 0 0 var(--ink); }
+.btn--primary:disabled{ opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: 0 6px 0 0 var(--ink); }
 .btn--ghost{
   background: transparent;
   color: var(--ink);
-  border: 1.5px solid var(--paper-shadow);
+  border-color: var(--paper-shadow);
 }
 .btn--ghost:hover{ border-color: var(--accent); color: var(--accent); }
 .btn--small{ padding: 8px 18px; font-size: 0.8rem; margin-top: 12px; }
@@ -288,21 +315,28 @@ body{
   margin: 4px 0 12px;
 }
 .letter-tile{
-  width: 40px;
-  height: 46px;
+  width: 42px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 1.2rem;
-  background: rgba(255,255,255,0.5);
-  border: 1.5px solid var(--paper-shadow);
-  border-radius: 4px;
+  background: rgba(255,255,255,0.6);
+  border: 3px solid var(--paper-shadow);
+  border-radius: 12px;
   position: relative;
   color: var(--ink);
 }
 .letter-tile.is-matched{ color: var(--ink-soft); }
+
+body[data-theme="cute"] .letter-tile:nth-child(6n+1){ border-color: var(--crayon-red); }
+body[data-theme="cute"] .letter-tile:nth-child(6n+2){ border-color: var(--crayon-orange); }
+body[data-theme="cute"] .letter-tile:nth-child(6n+3){ border-color: var(--crayon-yellow); }
+body[data-theme="cute"] .letter-tile:nth-child(6n+4){ border-color: var(--crayon-green); }
+body[data-theme="cute"] .letter-tile:nth-child(6n+5){ border-color: var(--crayon-blue); }
+body[data-theme="cute"] .letter-tile:nth-child(6n+6){ border-color: var(--crayon-purple); }
 .letter-tile .stamp{
   position: absolute;
   inset: 0;
@@ -343,22 +377,29 @@ body{
 }
 .flame-letter{
   width: 56px;
-  height: 64px;
-  border: 2px solid var(--paper-shadow);
-  border-radius: 6px;
+  height: 68px;
+  border: 3px solid var(--paper-shadow);
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: var(--font-ui);
   font-weight: 700;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.55);
   position: relative;
 }
 .flame-letter__letter{ font-size: 1.4rem; }
 .flame-letter__word{ font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
-.flame-letter.is-active{ border-color: var(--accent); }
+.flame-letter.is-active{ border-color: var(--accent); border-width: 3px; }
 .flame-letter.is-eliminated{ opacity: 0.25; }
+
+body[data-theme="cute"] .flame-letter:nth-child(1){ border-color: var(--crayon-red); }
+body[data-theme="cute"] .flame-letter:nth-child(2){ border-color: var(--crayon-orange); }
+body[data-theme="cute"] .flame-letter:nth-child(3){ border-color: var(--crayon-yellow); }
+body[data-theme="cute"] .flame-letter:nth-child(4){ border-color: var(--crayon-green); }
+body[data-theme="cute"] .flame-letter:nth-child(5){ border-color: var(--crayon-blue); }
+body[data-theme="cute"] .flame-letter:nth-child(6){ border-color: var(--crayon-purple); }
 .flames-counting{
   font-family: var(--font-ui);
   font-weight: 600;
