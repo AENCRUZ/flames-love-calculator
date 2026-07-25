@@ -1,11 +1,6 @@
 /**
  * audio.js
  * Small sound-effect engine built on the Web Audio API.
- *
- * The original plan called for stamp.mp3 / click.mp3 / paper-flip / sparkle
- * files. Rather than ship placeholder audio files that would need replacing,
- * every sound here is synthesized on the fly — drop this file for real
- * recorded assets later without touching any other code (see README).
  */
 
 const GameAudio = (() => {
