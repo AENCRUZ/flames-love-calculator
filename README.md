@@ -1,24 +1,24 @@
-# 💌 FLAMES — A Little Love Game
+# 🕹️ FLAMES — A Little Love Game (Retro Arcade Edition)
 
-An interactive, paper-letter-themed take on the classic FLAMES compatibility game.
+An interactive, retro-arcade take on the classic FLAMES compatibility game — think pixel fonts, chunky 8-bit dialog boxes, and NES-style sound effects.
 
-Enter two names, watch matching letters get crossed out with animated ink stamps, then experience the FLAMES elimination process as the game reveals your result.
+Enter two names, watch matching letters get cleared like an arcade puzzle level, then face the FLAMES "final boss" elimination countdown as the game reveals your result.
 
-This project transforms the classic Filipino love game into a small interactive experience with animations, themes, sound effects, and a playful user interface.
+This project transforms the classic Filipino love game into a small interactive experience with animations, arcade-themed skins, sound effects, and a playful pixel-art interface.
 
 ---
 
 ## ✨ Features
 
 - ✅ Name input with validation (empty fields, letters-only, and identical name checks)
-- ✅ Animated letter cancellation with ink-stamp crossing effects
-- ✅ Remaining-letter count reveal screen
-- ✅ Classic FLAMES elimination algorithm with animated countdown
-- ✅ Result reveal with wax-seal animation
-- ✅ Three visual themes:
-  - 🌸 Cute Pastel
-  - ❤️ Valentine
-  - 🌙 Midnight Romance
+- ✅ Animated letter cancellation ("Level 2: Clear the Matches")
+- ✅ Remaining-letter score screen
+- ✅ Classic FLAMES elimination algorithm as an animated "boss fight" countdown
+- ✅ "You Win!" result reveal with a pixel trophy/seal
+- ✅ Three arcade-cabinet themes:
+  - 🍄 Mario World (default) — sky blue, coin gold, fireball red
+  - 👻 Pac-Man Arcade — black cabinet with neon pink & yellow
+  - 👾 Space Invaders — phosphor-green terminal glow
 - ✅ Love History system using `localStorage`
 - ✅ Copy-result button for sharing results
 - ✅ Mobile-responsive layout
