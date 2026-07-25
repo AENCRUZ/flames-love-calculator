@@ -19,7 +19,7 @@
 
 /* Letter tile pop-in */
 .letter-tile{
-  animation: tilePop 0.35s cubic-bezier(.34,1.56,.64,1) backwards;
+  animation: tilePop 0.28s steps(4, end) backwards;
 }
 @keyframes tilePop{
   from{ opacity: 0; transform: scale(0.4) translateY(6px); }
@@ -28,7 +28,7 @@
 
 /* Ink stamp effect on matched letters */
 .letter-tile .stamp{
-  animation: stampHit 0.35s ease forwards;
+  animation: stampHit 0.28s steps(3, end) forwards;
   animation-play-state: paused;
 }
 .letter-tile.is-matched .stamp{
@@ -50,10 +50,10 @@
 
 /* FLAMES elimination */
 .flame-letter{
-  animation: tilePop 0.4s cubic-bezier(.34,1.56,.64,1) backwards;
+  animation: tilePop 0.32s steps(4, end) backwards;
 }
 .flame-letter.is-eliminated{
-  animation: eliminatePop 0.35s ease forwards;
+  animation: eliminatePop 0.28s steps(3, end) forwards;
 }
 @keyframes eliminatePop{
   0%{ transform: scale(1); }
