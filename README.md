@@ -1,4 +1,4 @@
-# 🕹️ FLAMES — A Little Love Game (Retro Arcade Edition)
+# 🕹️ FLAMES — A Little Love Game
 
 An interactive, retro-arcade take on the classic FLAMES compatibility game — think pixel fonts, chunky 8-bit dialog boxes, and NES-style sound effects.
 
