@@ -1,15 +1,9 @@
-/**
- * animations.js
- * DOM-facing animation helpers. Talks to the page; math lives in flames.js.
- */
-
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-/** Continuously spawn floating hearts into the ambient background layer. */
 function startAmbientHearts(container) {
-  const glyphs = ['💗', '💌', '✨', '🌸', '💞'];
+  const glyphs = ['💗', '⭐', '🪙', '✨', '👾'];
   function spawn() {
     const el = document.createElement('span');
     el.className = 'heart';
@@ -24,7 +18,6 @@ function startAmbientHearts(container) {
   return setInterval(spawn, 1800);
 }
 
-/** Crossfade between two scene sections. */
 function switchScene(fromEl, toEl) {
   if (fromEl) {
     fromEl.classList.remove('scene--active');
@@ -34,7 +27,6 @@ function switchScene(fromEl, toEl) {
   toEl.classList.add('scene--active');
 }
 
-/** Build a static row of letter tiles (used for the "remaining" screen). */
 function renderStaticTiles(container, letters) {
   container.innerHTML = '';
   letters.forEach((ch, i) => {
@@ -46,11 +38,6 @@ function renderStaticTiles(container, letters) {
   });
 }
 
-/**
- * Render a name's letters as tiles, then sequentially animate the "stamp"
- * for every matched letter with a small delay between each. Resolves once
- * every matched stamp has played.
- */
 async function renderAndStampRow(container, taggedLetters, { onStamp } = {}) {
   container.innerHTML = '';
   const tileEls = taggedLetters.map((entry, i) => {
@@ -79,7 +66,6 @@ async function renderAndStampRow(container, taggedLetters, { onStamp } = {}) {
   }
 }
 
-/** Build the six FLAMES tiles up front, returning references keyed by letter. */
 function renderFlamesTiles(container, meanings) {
   container.innerHTML = '';
   const tiles = {};
@@ -97,11 +83,6 @@ function renderFlamesTiles(container, meanings) {
   return tiles;
 }
 
-/**
- * Animate the FLAMES elimination sequence: highlight the active letter,
- * pause dramatically, then mark it eliminated — repeating for every letter
- * in eliminationOrder. Resolves once only the survivor remains.
- */
 async function animateFlamesElimination(tiles, eliminationOrder, countingEl, { onEliminate } = {}) {
   for (let i = 0; i < eliminationOrder.length; i += 1) {
     const letter = eliminationOrder[i];
