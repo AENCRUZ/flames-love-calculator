@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FLAMES — A Little Love Game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/animations.css" />
+</head>
+<body data-theme="cute">
+
+  <!-- Floating hearts / ambient layer -->
+  <div class="ambient" id="ambient"></div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" id="historyBtn" title="Love History" aria-label="Open love history">🗂️</button>
+    <div class="theme-picker" id="themePicker">
+      <button class="theme-dot theme-dot--cute" data-theme="cute" title="Cute pastel" aria-label="Cute pastel theme"></button>
+      <button class="theme-dot theme-dot--valentine" data-theme="valentine" title="Valentine" aria-label="Valentine theme"></button>
+      <button class="theme-dot theme-dot--midnight" data-theme="midnight" title="Midnight romance" aria-label="Midnight romance theme"></button>
+    </div>
+    <button class="icon-btn" id="muteBtn" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+  </header>
+
+  <main class="stage">
+
+    <!-- SCENE 1: Startup -->
+    <section class="scene scene--active" id="scene-1" data-scene="1">
+      <div class="envelope" id="envelope">
+        <div class="envelope__flap"></div>
+        <div class="envelope__body">
+          <div class="envelope__seal">💌</div>
+        </div>
+      </div>
+      <h1 class="title-script">FLAMES</h1>
+      <p class="subtitle">discover your connection, one crossed-out letter at a time</p>
+      <button class="btn btn--primary" id="startBtn">Open the letter</button>
+    </section>
+
+    <!-- SCENE 2: Name input -->
+    <section class="scene" id="scene-2" data-scene="2">
+      <div class="letter-card">
+        <p class="letter-salutation">Dear Player,</p>
+        <p class="letter-line">Tell me who's on your mind.</p>
+
+        <label class="field">
+          <span class="field__label">Your name</span>
+          <input type="text" id="nameYou" class="field__input" placeholder="e.g. Angelyn" maxlength="30" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Their name</span>
+          <input type="text" id="nameThem" class="field__input" placeholder="e.g. Eli" maxlength="30" autocomplete="off" />
+        </label>
+
+        <p class="field-error" id="formError" role="alert"></p>
+
+        <button class="btn btn--primary" id="continueBtn2">Continue</button>
+      </div>
+    </section>
+
+    <!-- SCENE 3: Letter matching -->
+    <section class="scene" id="scene-3" data-scene="3">
+      <div class="letter-card letter-card--wide">
+        <p class="letter-salutation">Crossing out the matches…</p>
+        <div class="match-row" id="matchRowYou"></div>
+        <div class="match-divider">✕</div>
+        <div class="match-row" id="matchRowThem"></div>
+        <button class="btn btn--primary btn--reveal" id="continueBtn3" disabled>See what's left</button>
+      </div>
+    </section>
+
+    <!-- SCENE 4: Remaining letters -->
+    <section class="scene" id="scene-4" data-scene="4">
+      <div class="letter-card">
+        <p class="letter-salutation">What's left, after the crossing-out:</p>
+        <div class="remaining-row" id="remainingRow"></div>
+        <p class="remaining-count">Count: <span id="remainingCount">0</span></p>
+        <button class="btn btn--primary" id="continueBtn4">Start the count</button>
+      </div>
+    </section>
+
+    <!-- SCENE 5: FLAMES elimination -->
+    <section class="scene" id="scene-5" data-scene="5">
+      <div class="letter-card letter-card--wide">
+        <p class="letter-salutation">F · L · A · M · E · S</p>
+        <div class="flames-row" id="flamesRow"></div>
+        <p class="flames-counting" id="flamesCounting">&nbsp;</p>
+      </div>
+    </section>
+
+    <!-- SCENE 6: Result -->
+    <section class="scene" id="scene-6" data-scene="6">
+      <div class="letter-card letter-card--result">
+        <div class="wax-seal" id="waxSeal">
+          <span id="waxSealEmoji">💗</span>
+        </div>
+        <h2 class="result-word" id="resultWord">LOVERS</h2>
+        <p class="result-desc" id="resultDesc">You two have a special connection.</p>
+        <p class="result-names" id="resultNames">Angelyn + Eli</p>
+
+        <div class="result-actions">
+          <button class="btn btn--ghost" id="copyBtn">Copy result</button>
+          <button class="btn btn--primary" id="againBtn">Play again</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- History drawer -->
+  <aside class="drawer" id="historyDrawer">
+    <div class="drawer__header">
+      <h3>Love History</h3>
+      <button class="icon-btn" id="closeHistory" aria-label="Close">✕</button>
+    </div>
+    <ul class="drawer__list" id="historyList"></ul>
+    <p class="drawer__empty" id="historyEmpty">No letters sent yet.</p>
+    <button class="btn btn--ghost btn--small" id="clearHistory">Clear history</button>
+  </aside>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/flames.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
