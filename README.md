@@ -56,7 +56,7 @@ The entered names are normalized by:
 Example:
 
 ```
-Angel Yn → angelyn
+Taylor → taylor
 ```
 
 ---
@@ -68,14 +68,14 @@ The game compares both names and removes matching letters.
 Example:
 
 ```
-ANGELYN
-ELI
+TAYLOR
+TRAVIS
 
 Common letters:
-E, L
+T, A, R
 
 Remaining letters:
-ANGYN + I
+YLO + VIS
 ```
 
 Each removed letter is displayed with an animated ink-stamp cross effect.
