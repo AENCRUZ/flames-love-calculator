@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FLAMES — A Little Love Game</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/animations.css" />
 </head>
@@ -36,15 +36,15 @@
         </div>
       </div>
       <h1 class="title-script">FLAMES</h1>
-      <p class="subtitle">discover your connection, one crossed-out letter at a time</p>
-      <button class="btn btn--primary" id="startBtn">Open the letter</button>
+      <p class="subtitle">insert two names to begin quest</p>
+      <button class="btn btn--primary" id="startBtn">Press Start</button>
     </section>
 
     <!-- SCENE 2: Name input -->
     <section class="scene" id="scene-2" data-scene="2">
       <div class="letter-card">
-        <p class="letter-salutation">Dear Player,</p>
-        <p class="letter-line">Tell me who's on your mind.</p>
+        <p class="letter-salutation">Level 1: Choose Your Players</p>
+        <p class="letter-line">Enter two names to begin.</p>
 
         <label class="field">
           <span class="field__label">Your name</span>
@@ -58,35 +58,35 @@
 
         <p class="field-error" id="formError" role="alert"></p>
 
-        <button class="btn btn--primary" id="continueBtn2">Continue</button>
+        <button class="btn btn--primary" id="continueBtn2">Next Level</button>
       </div>
     </section>
 
     <!-- SCENE 3: Letter matching -->
     <section class="scene" id="scene-3" data-scene="3">
       <div class="letter-card letter-card--wide">
-        <p class="letter-salutation">Crossing out the matches…</p>
+        <p class="letter-salutation">Level 2: Clear the Matches</p>
         <div class="match-row" id="matchRowYou"></div>
         <div class="match-divider">✕</div>
         <div class="match-row" id="matchRowThem"></div>
-        <button class="btn btn--primary btn--reveal" id="continueBtn3" disabled>See what's left</button>
+        <button class="btn btn--primary btn--reveal" id="continueBtn3" disabled>Next Level</button>
       </div>
     </section>
 
     <!-- SCENE 4: Remaining letters -->
     <section class="scene" id="scene-4" data-scene="4">
       <div class="letter-card">
-        <p class="letter-salutation">What's left, after the crossing-out:</p>
+        <p class="letter-salutation">Level 3: Your Score</p>
         <div class="remaining-row" id="remainingRow"></div>
         <p class="remaining-count">Count: <span id="remainingCount">0</span></p>
-        <button class="btn btn--primary" id="continueBtn4">Start the count</button>
+        <button class="btn btn--primary" id="continueBtn4">Fight the Boss</button>
       </div>
     </section>
 
     <!-- SCENE 5: FLAMES elimination -->
     <section class="scene" id="scene-5" data-scene="5">
       <div class="letter-card letter-card--wide">
-        <p class="letter-salutation">F · L · A · M · E · S</p>
+        <p class="letter-salutation">Final Boss: F·L·A·M·E·S</p>
         <div class="flames-row" id="flamesRow"></div>
         <p class="flames-counting" id="flamesCounting">&nbsp;</p>
       </div>
@@ -95,6 +95,7 @@
     <!-- SCENE 6: Result -->
     <section class="scene" id="scene-6" data-scene="6">
       <div class="letter-card letter-card--result">
+        <p class="you-win">You Win!</p>
         <div class="wax-seal" id="waxSeal">
           <span id="waxSealEmoji">💗</span>
         </div>
@@ -103,8 +104,8 @@
         <p class="result-names" id="resultNames">Taylor + Travis</p>
 
         <div class="result-actions">
-          <button class="btn btn--ghost" id="copyBtn">Copy result</button>
-          <button class="btn btn--primary" id="againBtn">Play again</button>
+          <button class="btn btn--ghost" id="copyBtn">Copy Score</button>
+          <button class="btn btn--primary" id="againBtn">Play Again</button>
         </div>
       </div>
     </section>
